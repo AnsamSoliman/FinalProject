@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView style="@style/Login"/>
+    <ImageView style="@style/Walkthrough"/>
+    <ImageView style="@style/Logo"
+        android:id="@+id/logo_login" />
+    <TextView style="@style/ThemeDescription"
+        android:id="@+id/themeDes" />
+
+    <LinearLayout style="@style/Linear"
+        android:id="@+id/LinearLayout">
+
+        <EditText style="@style/Email"
+            android:id="@+id/emai_signIn"
+            android:inputType="textEmailAddress" />
+
+        <EditText style="@style/Password"
+            android:id="@+id/password_signIn"
+            android:inputType="textPassword" />
+        <Button style="@style/start"
+            android:id="@+id/start" />
+        <TextView style="@style/NotRegister"
+            android:id="@+id/notRegister" />
+    </LinearLayout>
+
+
+</FrameLayout>

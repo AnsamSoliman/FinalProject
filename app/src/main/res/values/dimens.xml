@@ -1,0 +1,41 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="edit_text_padding_left">16dp</dimen>
+    <dimen name="edit_text_heightSignUp">35dp</dimen>
+    <dimen name="linear_top_margin">350dp</dimen>
+    <dimen name="linear_top_marginSignUp">217dp</dimen>
+    <dimen name="LineartMargin_SignUp">20dp</dimen>
+    <dimen name="LinearOfTwoButtons_marginTop">490dp</dimen>
+    <dimen name="RelativeLeft_RightMargin">15dp</dimen>
+    <dimen name="Linear_padding">16dp</dimen>
+    <dimen name="ScrollView_marginleft_Right">15dp</dimen>
+    <dimen name="ScrollView_marginTop">180dp</dimen>
+    <dimen name="ScrollView_marginBottom">120dp</dimen>
+    <dimen name="UI_bottom_margin">16dp</dimen>
+    <dimen name="UI_height">40dp</dimen>
+    <dimen name="ButtonMarginSignUp">20dp</dimen>
+    <dimen name="Register_top_marginSignUp">390dp</dimen>
+    <dimen name="Facebook_TopMargin">480dp</dimen>
+    <dimen name="or_topMargin">445dp</dimen>
+    <dimen name="profile_TopMargin">40dp</dimen>
+    <dimen name="profile_marginLeft">110dp</dimen>
+    <dimen name="subTitle_TopMargin">60dp</dimen>
+    <dimen name="themeDescription_width">270dp</dimen>
+    <dimen name="themeDescription_height">55dp</dimen>
+    <dimen name="themeDescription_topMargin">250dp</dimen>
+    <dimen name="logoWidth">230dp</dimen>
+    <dimen name="logoHeight">100dp</dimen>
+    <dimen name="logoTopMargin">100dp</dimen>
+    <dimen name="logoLeftMargin_SignUp">10dp</dimen>
+    <dimen name="backWidth">25dp</dimen>
+    <dimen name="backHeight">25dp</dimen>
+    <dimen name="profileImage_dimen">90dp</dimen>
+    <dimen name="profileImage_TopMargin">15dp</dimen>
+    <dimen name="userIconWidth">50dp</dimen>
+    <dimen name="userIconHeight">50dp</dimen>
+
+
+
+</resources>

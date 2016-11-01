@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.Toolbar
+        style="@style/ThemeOverlay.AppCompat.ActionBar.custome"
+        android:id="@+id/myToolBar">
+        <ImageView style="@style/Back"
+            android:id="@+id/back" />
+        <TextView style="@style/Title"
+            android:id="@+id/Title" />
+        <ImageView style="@style/humb"
+            android:id="@+id/humb"
+            android:onClick="showPopup"/>
+    </android.support.v7.widget.Toolbar>
+    <ImageView style="@style/HomeImage"/>
+    <ImageView style="@style/Walkthrough.Home"/>
+    <RelativeLayout style="@style/RelativeLayout_Home"
+        android:id="@+id/fragment_container">
+        <ImageView style="@style/profileImage"
+            android:id="@+id/profileImage" />
+        <TextView style="@style/UserName"
+            android:id="@+id/user" />
+        <TextView style="@style/subTitle"/>
+    </RelativeLayout>
+
+
+
+
+    <ScrollView style="@style/scrollView">
+        <LinearLayout style="@style/LinearScroll">
+            <TextView style="@style/TextTitles.AboutMe"/>
+            <TextView style="@style/dummyText"
+                android:id="@+id/aboutU"
+                android:fontFamily="sans-serif" />
+            <View style="@style/viewStyle"/>
+            <TextView style="@style/TextTitles.commonFriends"/>
+            <HorizontalScrollView style="@style/HorizontalScrollStyle">
+                <LinearLayout
+                    style="@style/LinearFriends"
+                    android:id="@+id/LinearFriend">
+                    <View style="@style/circles"/>
+
+                    <View style="@style/circles"/>
+
+                    <View style="@style/circles"/>
+                    <View style="@style/circles"/>
+                    <View style="@style/circles"/>
+                    <View style="@style/circles"/>
+             </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView style="@style/TextTitles.Hobbies"/>
+
+            <GridView style="@style/GridStyle"
+                android:id="@+id/gridView"
+                android:layout_height="60dp"
+                android:layout_width="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout style="@style/LinearOfTwoButtons">
+        <Button style="@style/Contact"/>
+        <Button style="@style/Follow"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>
+

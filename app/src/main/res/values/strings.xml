@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="useName_hint">UserName</string>
+    <string name="confirm_hint">Confirm password</string>
+    <string name="start">start</string>
+    <string name="register">Register</string>
+    <string name="contact">CONTACT</string>
+    <string name="follow">FOLLOW</string>
+    <string name="title">Profile 4</string>
+    <string name="profile">Slade Design</string>
+    <string name="subtitle">UI/UX Designer</string>
+    <string name="aboutMe">ABOUT ME</string>
+    <string name="commonFriends">COMMON FRIENDS</string>
+    <string name="hobbies">HOBBIES</string>
+    <string name="facebook_signin">SIGN IN WITH FACEBOOK</string>
+    <string name="or">or</string>
+    <string name="NotRegisterHint">Not registered? Please,  Sign Up</string>
+    <string name="changeProfile">Change Your Profile Details:</string>
+    <string name="theme_description">
+    Monosodium glutamate is the sodium salt of
+    glutamic acid, one of the most abundant naturally
+    occurring non-essential amino acids.
+    </string>
+    <string name="dummyText">
+        Loren ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore magna aliqua. Ut enim ad minim veniam, quis
+        nostrud exercitation ullamcolaboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur.
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ChoosingHobbies">Choose Your Hobbies:</string>
+    <string-array name="navigationDrawer">
+        <item>Edit Profile</item>
+        <item>Settings</item>
+    </string-array>
+    <string-array name="hobbies">
+        <item>Reading</item>
+        <item>Sporting</item>
+        <item>Cooking</item>
+        <item>Design</item>
+        <item>Watching TV</item>
+        <item>Fashion</item>
+    </string-array>
+
+</resources>

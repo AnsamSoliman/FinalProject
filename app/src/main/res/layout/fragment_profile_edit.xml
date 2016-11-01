@@ -1,0 +1,47 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.ansam.finalproject.ProfileEditFragment"
+    android:id="@+id/edit_frag">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:background="@drawable/bg_img"/>
+    <ImageView style="@style/userBg" />
+
+    <ScrollView style="@style/scrollViewfragment"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollview">
+        <LinearLayout style="@style/LinearScroll">
+            <TextView style="@style/ChangeProfileText"/>
+            <EditText style="@style/ChangeUserName"
+                android:id="@+id/user" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                >
+            <EditText style="@style/ChangeUserName.friends"
+                android:id="@+id/friends" />
+            <Button style="@style/EnterButton"
+                android:id="@+id/enter" />
+            </LinearLayout>
+            <TextView style="@style/ChoosingHobbies">
+            </TextView>
+            <ListView style="@style/listViewStyle"
+                android:id="@+id/list_view"></ListView>
+            <EditText style="@style/AboutU"
+                android:id="@+id/about" />
+            <Button style="@style/ButtonSave"
+                android:id="@+id/save"></Button>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</FrameLayout>

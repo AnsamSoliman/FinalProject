@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="editTextBackground">#ECEFF1</color>
+    <color name="hintColor">#807c7c</color>
+    <color name="linearColor">#ffffff</color>
+    <color name="buttonTextColor">#00ACC1</color>
+    <color name="black">#6c6a6a</color>
+    <color name="blackFacbook">#263238</color>
+    <color name="viewColor">#ECEFF1</color>
+    <color name="contactColor">#ffae2045</color>
+    <color name="editTextProfileBg">#FFEBEE</color>
+    <color name="hobbyColor">#ac246c</color>
+
+</resources>

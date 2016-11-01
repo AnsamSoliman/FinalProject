@@ -1,0 +1,508 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="editTextStyle">@style/Widget.AppCompat.EditText.Custom</item>
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Custom</item>
+    </style>
+
+    <!-- TextView style -->
+    <style name="NotRegister">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:text">@string/NotRegisterHint</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+    <!-- Tiltel style-->
+    <style name="Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:text">@string/title</item>
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:layout_alignBaseline">@id/back</item>
+    </style>
+    <!-- userName style-->
+    <style name="UserName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/profile_TopMargin</item>
+        <item name="android:layout_marginLeft">@dimen/profile_marginLeft</item>
+        <item name="android:text">@string/profile</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/linearColor</item>
+    </style>
+    <!-- subTitle style-->
+    <style name="subTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/profile_marginLeft</item>
+        <item name="android:layout_marginTop">@dimen/subTitle_TopMargin</item>
+        <item name="android:text">@string/subtitle</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/linearColor</item>
+    </style>
+    <!--TextView Titles style-->
+    <style name="TextTitles">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- About Me Title style-->
+    <style name="TextTitles.AboutMe">
+        <item name="android:text">@string/aboutMe</item>
+    </style>
+    <!-- Common friends Title-->
+    <style name="TextTitles.commonFriends">
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:text">@string/commonFriends</item>
+    </style>
+    <!-- Hobbies Title style -->
+    <style name="TextTitles.Hobbies">
+        <item name="android:text">@string/hobbies</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+    <!-- TextView NOTRegister signup -->
+    <style name="NotRegister.signUp">
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:layout_marginTop">540dp</item>
+    </style>
+    <!-- Dummy Text style-->
+    <style name="dummyText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:text">@string/dummyText</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+     <!-- Or style -->
+    <style name="Or" parent="TextAppearance.AppCompat.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/or</item>
+        <item name="android:layout_marginTop">@dimen/or_topMargin</item>
+    </style>
+    <!-- Theme Description style -->
+    <style name="ThemeDescription" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:alpha">0.8</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_width">@dimen/themeDescription_width</item>
+        <item name="android:layout_height">@dimen/themeDescription_height</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">@dimen/themeDescription_topMargin</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:text">@string/theme_description</item>
+    </style>
+    <!-- EditText style -->
+    <style name="Widget.AppCompat.EditText.Custom">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColorHint">@color/hintColor</item>
+        <item name="android:paddingLeft">@dimen/edit_text_padding_left</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- Email EditText for login -->
+    <style name="Email">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/editTextBackground</item>
+        <item name="android:layout_height">@dimen/UI_height</item>
+        <item name="android:hint">@string/email_hint</item>
+        <item name="android:layout_marginBottom">@dimen/UI_bottom_margin</item>
+    </style>
+    <!-- Password EditText for login-->
+    <style name="Password" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/editTextBackground</item>
+        <item name="android:layout_height">@dimen/UI_height</item>
+        <item name="android:hint">@string/password_hint</item>
+        <item name="android:layout_marginBottom">@dimen/UI_bottom_margin</item>
+    </style>
+    <!-- Email EditText (signUp) -->
+    <style name="Email.SignUp">
+        <item name="android:background">@color/linearColor</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_height">@dimen/edit_text_heightSignUp</item>
+    </style>
+    <!-- UserName EditText -->
+    <style name="Email.UserName">
+        <item name="android:background">@color/linearColor</item>
+        <item name="android:hint">@string/useName_hint</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_height">@dimen/edit_text_heightSignUp</item>
+    </style>
+    <!-- Password SignUp -->
+    <style name="Password.SignUp">
+        <item name="android:background">@color/linearColor</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_height">@dimen/edit_text_heightSignUp</item>
+    </style>
+    <!-- Confirm Password style -->
+    <style name="Password.Confirm">
+        <item name="android:background">@color/linearColor</item>
+        <item name="android:hint">@string/confirm_hint</item>
+        <item name="android:layout_height">@dimen/edit_text_heightSignUp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
+    <!-- View style Between EditTexts-->
+    <style name="viewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/viewColor</item>
+    </style>
+    <!--Button style -->
+    <style name="Widget.AppCompat.Button.Custom">
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!-- Contact Button style-->
+    <style name="Contact">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:layout_height">@dimen/UI_height</item>
+        <item name="android:backgroundTint">@color/contactColor</item>
+        <item name="android:text">@string/contact</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">30dp</item>
+    </style>
+    <!-- Follow Button style-->
+    <style name="Follow">
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:layout_height">@dimen/UI_height</item>
+        <item name="android:layout_width">70dp</item>
+        <item name="android:backgroundTint">@color/buttonTextColor</item>
+        <item name="android:text">@string/follow</item>
+    </style>
+
+    <!-- Start style -->
+    <style name="start" parent="TextAppearance.AppCompat.Medium" >
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/UI_height</item>
+        <item name="android:text">@string/start</item>
+        <item name="android:backgroundTint">@color/buttonTextColor</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+    <!-- RegisterButtons style -->
+    <style name="register" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/linearColor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/UI_height</item>
+        <item name="android:text">@string/register</item>
+        <item name="android:backgroundTint">@color/buttonTextColor</item>
+        <item name="android:layout_marginLeft">@dimen/ButtonMarginSignUp</item>
+        <item name="android:layout_marginRight">@dimen/ButtonMarginSignUp</item>
+        <item name="android:layout_marginTop">@dimen/Register_top_marginSignUp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+
+    </style>
+    <style name="register.facebook">
+        <item name="android:text">@string/facebook_signin</item>
+        <item name="android:backgroundTint">@color/blackFacbook</item>
+        <item name="android:layout_marginTop">@dimen/Facebook_TopMargin</item>
+
+    </style>
+    <!-- loginImage style -->
+    <style name="Login">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/signin_img</item>
+    </style>
+    <!-- SignUpImage style -->
+    <style name="SignUp">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/signup_img</item>
+    </style>
+    <!-- HomeImage style -->
+    <style name="HomeImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/home_img</item>
+
+    </style>
+    <!--Background Image for Home -->
+    <style name="Walkthrough.Home">
+        <item name="android:alpha">0.6</item>
+    </style>
+    <!-- Background Image -->
+    <style name="Walkthrough">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/walkthrough_bg</item>
+        <item name="android:alpha">0.3</item>
+    </style>
+    <!-- profile Image style-->
+    <style name="profileImage">
+        <item name="android:layout_width">@dimen/profileImage_dimen</item>
+        <item name="android:layout_height">@dimen/profileImage_dimen</item>
+        <item name="android:layout_marginTop">@dimen/profileImage_TopMargin</item>
+        <item name="android:background">@drawable/profile_img</item>
+    </style>
+    <!-- Logo style in Login -->
+    <style name="Logo">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">@dimen/logoWidth</item>
+        <item name="android:layout_height">@dimen/logoHeight</item>
+        <item name="android:layout_marginTop">@dimen/logoTopMargin</item>
+        <item name="android:alpha">0.8</item>
+        <item name="android:background">@drawable/logo</item>
+    </style>
+    <!-- Logo style in signup -->
+    <style name="Logo.signUp">
+        <item name="android:alpha">1.0</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:layout_marginLeft">@dimen/logoLeftMargin_SignUp</item>
+        <item name="android:layout_marginBottom">@dimen/UI_bottom_margin</item>
+    </style>
+    <!--Back Image style -->
+    <style name="Back">
+        <item name="android:layout_width">@dimen/backWidth</item>
+        <item name="android:layout_height">@dimen/backHeight</item>
+        <item name="android:background">@drawable/back</item>
+    </style>
+    <!-- Humburger Icon style-->
+    <style name="humb">
+        <item name="android:layout_width">@dimen/backWidth</item>
+        <item name="android:layout_height">@dimen/backHeight</item>
+        <item name="android:background">@drawable/humb_icon</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+    <!--Linear Layout (login) -->
+    <style name="Linear">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/linear_top_margin</item>
+        <item name="android:background">@color/linearColor</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+    </style>
+    <!-- Linear Layout (signUp)-->
+    <style name="Linearrounded">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginLeft">@dimen/LineartMargin_SignUp</item>
+        <item name="android:layout_marginRight">@dimen/LineartMargin_SignUp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/linear_top_marginSignUp</item>
+        <item name="android:background">@drawable/rounded_linear</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+    <!-- LinearLayout for Follow and Contact-->
+    <style name="LinearOfTwoButtons">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/LineartMargin_SignUp</item>
+        <item name="android:layout_marginRight">@dimen/LineartMargin_SignUp</item>
+        <item name="android:layout_marginTop">@dimen/LinearOfTwoButtons_marginTop</item>
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+    <!--Relative Layout -->
+    <style name="RelativeLayout_Home">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">53dp</item>
+        <item name="android:layout_marginLeft">@dimen/RelativeLeft_RightMargin</item>
+        <item name="android:layout_marginRight">@dimen/RelativeLeft_RightMargin</item>
+    </style>
+    <!--ScrollView style -->
+    <style name="scrollView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/ScrollView_marginTop</item>
+        <item name="android:background">@drawable/rounded_linear</item>
+        <item name="android:layout_marginLeft">@dimen/ScrollView_marginleft_Right</item>
+        <item name="android:layout_marginRight">@dimen/ScrollView_marginleft_Right</item>
+        <item name="android:layout_marginBottom">@dimen/ScrollView_marginBottom</item>
+        <item name="android:backgroundTint">#33FFFFFF</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <!-- Horezantal ScrollView -->
+    <style name="HorizontalScrollStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+    <!-- Linear Layout child's ScrollView-->
+    <style name="LinearScroll">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <!-- custome actionBar for HomeScreen-->
+    <style name="ThemeOverlay.AppCompat.ActionBar.custome">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:background">#33ffffff</item>
+    </style>
+    <!-- styles for fragment-->
+    <style name="fragmentBg">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/walkthrough_bg</item>
+    </style>
+
+    <!-- SrollView for fragment -->
+    <style name="scrollViewfragment">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:layout_marginTop">250dp</item>
+    </style>
+    <!-- user icon Background-->
+    <style name="userBg">
+        <item name="android:layout_width">156dp</item>
+        <item name="android:layout_height">182dp</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/profile_img</item>
+    </style>
+
+    <!-- user Icon style-->
+    <style name="UserIcon">
+        <item name="android:layout_marginTop">65dp</item>
+        <item name="android:background">@drawable/girle</item>
+        <item name="android:layout_width">121dp</item>
+        <item name="android:layout_height">139dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <!-- user Edit style -->
+    <style name="UserEdit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/UI_height</item>
+        <item name="android:layout_marginTop">70dp</item>
+        <item name="android:hint">User Name</item>
+    </style>
+
+    <!--Change Profile Deatials-->
+    <style name="ChangeProfileText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:text">@string/changeProfile</item>
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <!-- change user name-->
+    <style name="ChangeUserName">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@color/editTextBackground</item>
+        <item name="android:hint">Enter Your Name</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+    <!-- common friends edit text-->
+    <style name="ChangeUserName.friends">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:hint">Enter  your Common Friends</item>
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+    </style>
+    <!-- Enter Button style-->
+    <style name="EnterButton">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:text">Enter</item>
+        <item name="android:background">@color/editTextBackground</item>
+        <item name="android:textColor">#1B5E20</item>
+    </style>
+    <!-- choose hobbies style-->
+    <style name="ChoosingHobbies">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/ChoosingHobbies</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- listView style-->
+    <style name="listViewStyle">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">400dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@color/editTextBackground</item>
+        <item name="android:choiceMode">multipleChoice</item>
+    </style>
+    <!--Button Save-->
+    <style name="ButtonSave">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">@dimen/edit_text_heightSignUp</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:text">SAVE</item>
+        <item name="android:backgroundTint">@color/buttonTextColor</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+    <!--About U style-->
+    <style name="AboutU">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:hint">Write about you</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">@color/editTextBackground</item>
+        <item name="android:gravity">left</item>
+    </style>
+    <!-- linear container for circles-->
+    <style name="LinearFriends">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+    <!-- circles style -->
+    <style name="circles">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/circlr_rounded</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+    <!-- Grid Style-->
+    <style name="GridStyle">
+        <item name="android:layout_width">270dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:numColumns">3</item>
+        <item name="android:columnWidth">30dp</item>
+        <item name="android:verticalSpacing">10dp</item>
+        <item name="android:horizontalSpacing">5dp</item>
+        <item name="android:stretchMode">columnWidth</item>
+
+
+
+    </style>
+    <!-- Hobbies Button style-->
+    <style name="HobbiesButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rounded_button</item>
+
+    </style>
+
+
+</resources>
