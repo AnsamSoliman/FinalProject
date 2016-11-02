@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.util.SparseBooleanArray;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,21 +50,25 @@ public class ProfileEditFragment extends Fragment {
         aboutYou=(EditText) view.findViewById(R.id.about);
         commonFriends=(EditText)view.findViewById(R.id.friends);
         save=(Button)view.findViewById(R.id.save);
-        enter=(Button)view.findViewById(R.id.enter);
         //set Adapter for listView
         Hobbies=getResources().getStringArray(R.array.hobbies);
         listview=(ListView)view.findViewById(R.id.list_view);
         listview.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listview.setAdapter(new ArrayAdapter<String>(view.getContext(),R.layout.list_view,Hobbies));
         //enter common friends
-        enter.setOnClickListener(new View.OnClickListener() {
+        commonFriends.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onClick(View v) {
-                friend=commonFriends.getText().toString();
-                friends+=friend+",";
-                Log.i("Friends",friends);
-                commonFriends.setText("");
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    friend=commonFriends.getText().toString();
+                    friends+=friend+",";
+                    Log.i("Friends",friends);
+                    commonFriends.setText("");
+                    return true;
 
+                }
+                return false;
             }
         });
 
@@ -100,14 +105,13 @@ public class ProfileEditFragment extends Fragment {
                 user=userName.getText().toString();
                 userName.setEnabled(false);
                 commonFriends.setEnabled(false);
-                enter.setEnabled(false);
+//                enter.setEnabled(false);
                 listview.setEnabled(false);
                 scrollView.setEnabled(false);
                 aboutYou.setEnabled(false);
                 save.setEnabled(false);
                 userName.setBackgroundColor(Color.parseColor("#BDBDBD"));
                 commonFriends.setBackgroundColor(Color.parseColor("#BDBDBD"));
-                enter.setBackgroundColor(Color.parseColor("#BDBDBD"));
                 listview.setBackgroundColor(Color.parseColor("#BDBDBD"));
                 aboutYou.setBackgroundColor(Color.parseColor("#BDBDBD"));
                 SharedPreferences.Editor editor = sharedPreferences.edit();

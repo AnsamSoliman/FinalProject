@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/activity_home"
+<FrameLayout
+    android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -28,7 +29,8 @@
 
 
 
-    <ScrollView style="@style/scrollView">
+    <ScrollView style="@style/scrollView"
+        android:id="@+id/scrollHome">
         <LinearLayout style="@style/LinearScroll">
             <TextView style="@style/TextTitles.AboutMe"/>
             <TextView style="@style/dummyText"
@@ -55,18 +57,25 @@
 
             <GridView style="@style/GridStyle"
                 android:id="@+id/gridView"
-                android:layout_height="60dp"
-                android:layout_width="wrap_content" />
+                android:layout_width="wrap_content"
+                android:layout_height="60dp" />
 
         </LinearLayout>
 
     </ScrollView>
 
-    <LinearLayout style="@style/LinearOfTwoButtons">
-        <Button style="@style/Contact"/>
-        <Button style="@style/Follow"/>
+    <RelativeLayout style="@style/LinearOfTwoButtons">
+        <Button style="@style/Contact"
+            android:id="@+id/contact" />
+        <View style="@style/viewHome"
+            android:id="@+id/view"></View>
 
-    </LinearLayout>
+        <Button style="@style/Follow"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
 
 
 </FrameLayout>
