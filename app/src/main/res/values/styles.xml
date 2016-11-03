@@ -32,18 +32,22 @@
     <style name="UserName">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/profile_TopMargin</item>
-        <item name="android:layout_marginLeft">@dimen/profile_marginLeft</item>
+        <item name="android:layout_toRightOf">@id/profileImage</item>
         <item name="android:text">@string/profile</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/linearColor</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_toEndOf">@id/profileImage</item>
+        <item name="android:layout_alignTop">@id/profileImage</item>
+        <item name="android:layout_marginTop">24dp</item>
     </style>
     <!-- subTitle style-->
     <style name="subTitle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">@dimen/profile_marginLeft</item>
-        <item name="android:layout_marginTop">@dimen/subTitle_TopMargin</item>
+        <item name="android:layout_below">@id/user</item>
+        <item name="android:layout_toRightOf">@id/profileImage</item>
+        <item name="android:layout_alignStart">@id/user</item>
         <item name="android:text">@string/subtitle</item>
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/linearColor</item>
@@ -59,17 +63,19 @@
     <!-- About Me Title style-->
     <style name="TextTitles.AboutMe">
         <item name="android:text">@string/aboutMe</item>
+        <item name="android:fontFamily">sans-serif</item>
     </style>
     <!-- Common friends Title-->
     <style name="TextTitles.commonFriends">
-        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_below">@id/viewId</item>
         <item name="android:text">@string/commonFriends</item>
     </style>
     <!-- Hobbies Title style -->
     <style name="TextTitles.Hobbies">
         <item name="android:text">@string/hobbies</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_below">@id/friendsScroll</item>
     </style>
     <!-- TextView NOTRegister signup -->
     <style name="NotRegister.signUp">
@@ -82,10 +88,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">13sp</item>
         <item name="android:text">@string/dummyText</item>
+        <item name="android:layout_below">@id/aboutText</item>
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:textColor">@color/linearColor</item>
         <item name="android:gravity">left</item>
-        <item name="android:layout_marginBottom">15dp</item>
     </style>
      <!-- Or style -->
     <style name="Or" parent="TextAppearance.AppCompat.Small">
@@ -163,6 +169,8 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/viewColor</item>
+        <item name="android:layout_below">@id/aboutU</item>
+        <item name="android:layout_marginTop">20dp</item>
     </style>
     <!--Button style -->
     <style name="Widget.AppCompat.Button.Custom">
@@ -235,6 +243,12 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@drawable/signup_img</item>
     </style>
+    <!--HomeRelative style-->
+    <style name="HomeRelative">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">20dp</item>
+    </style>
     <!-- HomeImage style -->
     <style name="HomeImage">
         <item name="android:layout_width">match_parent</item>
@@ -257,7 +271,8 @@
     <style name="profileImage">
         <item name="android:layout_width">@dimen/profileImage_dimen</item>
         <item name="android:layout_height">@dimen/profileImage_dimen</item>
-        <item name="android:layout_marginTop">@dimen/profileImage_TopMargin</item>
+        <item name="android:layout_marginTop">70dp</item>
+        <item name="android:layout_below">@id/myToolBar</item>
         <item name="android:background">@drawable/profile_img</item>
     </style>
     <!-- Logo style in Login -->
@@ -317,10 +332,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_below">@id/scrollHome</item>
-        <item name="android:layout_marginLeft">@dimen/LineartMargin_SignUp</item>
-        <item name="android:layout_marginRight">@dimen/LineartMargin_SignUp</item>
-        <item name="android:layout_marginTop">@dimen/LinearOfTwoButtons_marginTop</item>
-        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">15dp</item>
 
     </style>
     <!--Relative Layout -->
@@ -334,28 +346,29 @@
     <!--ScrollView style -->
     <style name="scrollView">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_marginTop">@dimen/ScrollView_marginTop</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_below">@id/profileImage</item>
+        <item name="android:layout_marginTop">20dp</item>
         <item name="android:background">@drawable/rounded_linear</item>
-        <item name="android:layout_marginLeft">@dimen/ScrollView_marginleft_Right</item>
-        <item name="android:layout_marginRight">@dimen/ScrollView_marginleft_Right</item>
-        <item name="android:layout_marginBottom">@dimen/ScrollView_marginBottom</item>
         <item name="android:backgroundTint">#33FFFFFF</item>
-        <item name="android:padding">1dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:fillViewport">true</item>
     </style>
     <!-- Horezantal ScrollView -->
     <style name="HorizontalScrollStyle">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_below">@id/friends</item>
         <item name="android:layout_marginTop">10dp</item>
-        <item name="android:layout_marginBottom">10dp</item>
     </style>
     <!-- Linear Layout child's ScrollView-->
     <style name="LinearScroll">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:padding">10dp</item>
     </style>
     <!-- custome actionBar for HomeScreen-->
     <style name="ThemeOverlay.AppCompat.ActionBar.custome">
@@ -510,9 +523,8 @@
         <item name="android:verticalSpacing">10dp</item>
         <item name="android:horizontalSpacing">2dp</item>
         <item name="android:stretchMode">columnWidth</item>
-
-
-
+        <item name="android:layout_below">@id/hobbiesId</item>
+        <item name="android:fillViewport">true</item>
     </style>
     <!-- Hobbies Button style-->
     <style name="HobbiesButton">
@@ -520,6 +532,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/rounded_button</item>
 
+    </style>
+
+    <!-- LinearLayout inside Scroll view in home page-->
+    <style name="linearScrollHome">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
     </style>
 
 

@@ -19,7 +19,7 @@
     <dimen name="Register_top_marginSignUp">390dp</dimen>
     <dimen name="Facebook_TopMargin">480dp</dimen>
     <dimen name="or_topMargin">445dp</dimen>
-    <dimen name="profile_TopMargin">40dp</dimen>
+    <dimen name="profile_TopMargin">100dp</dimen>
     <dimen name="profile_marginLeft">110dp</dimen>
     <dimen name="subTitle_TopMargin">60dp</dimen>
     <dimen name="themeDescription_width">270dp</dimen>
