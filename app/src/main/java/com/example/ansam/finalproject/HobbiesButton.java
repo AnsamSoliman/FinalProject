@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -22,27 +23,38 @@ import java.util.Arrays;
  */
 
 public class HobbiesButton extends BaseAdapter {
-    private Context mContext;
-    String item[]={"Cooking","Design","Fashion","Sporting","Reading","Watching TV"};
-    ArrayList<String> array=new ArrayList<String>(Arrays.asList(item));
-    public HobbiesButton(Context c){
-        mContext=c;
+    private Context context;
+    private final String[] textViewValues;
+
+    public HobbiesButton(Context context, String[] textViewValues) {
+        this.context = context;
+        this.textViewValues = textViewValues;
     }
-    public HobbiesButton(Context c,String item[]){
-       mContext=c;
-        array.clear();
-        for(int i=0;i<item.length;i++) {
-            array.add( item[i]);
-            Log.i("hobbies element:", array.get(i));
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View gridView;
+
+        if (convertView == null) {
+
+            gridView = new View(context);
+            gridView = inflater.inflate(R.layout.item, null);
+            TextView textView = (TextView) gridView
+                    .findViewById(R.id.grid_item_label);
+            textView.setText(textViewValues[position]);
+        } else {
+            gridView = (View) convertView;
         }
+
+        return gridView;
     }
-
-
 
     @Override
     public int getCount() {
-
-        return array.size();
+        return textViewValues.length;
     }
 
     @Override
@@ -54,24 +66,5 @@ public class HobbiesButton extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        Button hobby;
-        if(convertView==null){
-            hobby=new Button(mContext);
-            ViewGroup.LayoutParams lp=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 50);
-            hobby.setLayoutParams(lp);
-            //hobby.setGravity(Gravity.LEFT);
-            hobby.setBackgroundResource(R.drawable.hobby_button);
-        }
-        else{
-            hobby=(Button) convertView;
-        }
-        hobby.setTextSize(12);
-        hobby.setTextColor(Color.WHITE);
-        hobby.setTransformationMethod(null);
-        hobby.setText( array.get(position));
-        return hobby;
-    }
 }
+

@@ -352,10 +352,8 @@
         <item name="android:background">@drawable/rounded_linear</item>
         <item name="android:backgroundTint">#33FFFFFF</item>
         <item name="android:paddingLeft">10dp</item>
-        <item name="android:paddingBottom">20dp</item>
         <item name="android:paddingRight">10dp</item>
-        <item name="android:paddingTop">20dp</item>
-        <item name="android:fillViewport">true</item>
+        <item name="android:paddingTop">13dp</item>
     </style>
     <!-- Horezantal ScrollView -->
     <style name="HorizontalScrollStyle">
@@ -516,15 +514,14 @@
     </style>
     <!-- Grid Style-->
     <style name="GridStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
         <item name="android:numColumns">3</item>
         <item name="android:columnWidth">20dp</item>
-        <item name="android:verticalSpacing">10dp</item>
-        <item name="android:horizontalSpacing">2dp</item>
-        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:horizontalSpacing">10dp</item>
+        <item name="android:verticalSpacing">5dp</item>
         <item name="android:layout_below">@id/hobbiesId</item>
-        <item name="android:fillViewport">true</item>
+
     </style>
     <!-- Hobbies Button style-->
     <style name="HobbiesButton">

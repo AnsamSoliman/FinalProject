@@ -14,15 +14,22 @@
     <Button style="@style/register"
         android:id="@+id/register"
         android:textAllCaps="false" />
+
     <TextView style="@style/Or"/>
     <Button style="@style/register.facebook"
         android:id="@+id/faceBtn" />
     <TextView style="@style/NotRegister.signUp"/>
 
     <LinearLayout style="@style/Linearrounded">
+
         <EditText style="@style/Email.UserName"
             android:id="@+id/user_signUp"
             android:inputType="text|textPersonName" />
+
+        <EditText style="@style/Password.Confirm"
+            android:id="@+id/confirmpass"
+            android:inputType="textPassword" />
+
         <View style="@style/viewStyle"/>
         <EditText style="@style/Email.SignUp"
             android:id="@+id/email_signUp"
@@ -32,9 +39,6 @@
             android:id="@+id/password_signUp"
             android:inputType="textPassword" />
         <View style="@style/viewStyle"/>
-        <EditText style="@style/Password.Confirm"
-            android:id="@+id/confirmpass"
-            android:inputType="textPassword" />
     </LinearLayout>
 
 </FrameLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-    android:id="@+id/activity_home"
+    android:id="@+id/home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -19,8 +19,7 @@
     <ImageView style="@style/Walkthrough.Home"/>
 
     <RelativeLayout style="@style/HomeRelative"
-        android:layout_height="wrap_content"
-        android:id="@+id/homeRelative">
+        android:layout_height="wrap_content">
 
         <ImageView style="@style/profileImage"
             android:id="@+id/profileImage"
@@ -30,12 +29,26 @@
         <TextView style="@style/UserName"
             android:id="@+id/user" />
         <TextView style="@style/subTitle"/>
+
+        <RelativeLayout style="@style/LinearOfTwoButtons">
+            <Button style="@style/Contact"
+                android:id="@+id/contact" />
+            <View style="@style/viewHome"
+                android:id="@+id/view"></View>
+
+            <Button style="@style/Follow"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
         <ScrollView style="@style/scrollView"
             android:id="@+id/scrollHome"
-            android:layout_height="300dp">
-            <LinearLayout style="@style/linearScrollHome">
-            <RelativeLayout style="@style/LinearScroll"
-                android:layout_height="match_parent">
+            android:layout_above="@+id/relativeLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+            <RelativeLayout style="@style/LinearScroll">
                 <TextView style="@style/TextTitles.AboutMe"
                     android:id="@+id/aboutText" />
 
@@ -59,27 +72,15 @@
                 </HorizontalScrollView>
                 <TextView style="@style/TextTitles.Hobbies"
                     android:id="@+id/hobbiesId" />
+
                 <GridView style="@style/GridStyle"
-                    android:id="@+id/gridView" />
+                    android:id="@+id/gridView"
+                    android:layout_height="50dp" />
 
 
             </RelativeLayout>
-            </LinearLayout>
-            </ScrollView>
 
-
-        <RelativeLayout style="@style/LinearOfTwoButtons">
-            <Button style="@style/Contact"
-                android:id="@+id/contact" />
-            <View style="@style/viewHome"
-                android:id="@+id/view"></View>
-
-            <Button style="@style/Follow"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-
-        </RelativeLayout>
+        </ScrollView>
 
     </RelativeLayout>
 </FrameLayout>

@@ -1,4 +1,6 @@
 package com.example.ansam.finalproject;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -36,19 +38,18 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
     String [] items,items2;
     LinearLayout LFriends;
     GridView gView;
+    String hobb[]={"Cooking","Reading","Watching TV","Fashion","Design","Sporting"};
  @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        fragment=new ProfileEditFragment();
         menu=(ImageView)findViewById(R.id.humb) ;
         UserName=(TextView)findViewById(R.id.user);
         AboutYou=(TextView)findViewById(R.id.aboutU) ;
         LFriends=(LinearLayout)findViewById(R.id.LinearFriend);
         gView=(GridView)findViewById(R.id.gridView);
-        gView.setAdapter(new HobbiesButton(this));
-        HomeFragment homeFragment=new HomeFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.activity_home,homeFragment).addToBackStack("home").commit();
-
+        gView.setAdapter(new HobbiesButton(this,hobb));
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,14 +69,12 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
+
         switch (item.getItemId()) {
             case R.id.edit_profile:
-                fragment=new ProfileEditFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.activity_home,fragment).commit();
+                getSupportFragmentManager().beginTransaction().add(R.id.home,fragment).commit();
                 return true;
             case R.id.settings:
-                fragment=new HomeFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.activity_home,fragment).commit();
                 return true;
         }
         return false;
@@ -84,7 +83,7 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
     @Override
     public void UpdateInformation(boolean flage) {
         if(flage==true){
-            SharedPreferences sh=getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences sh=getSharedPreferences("sh",Context.MODE_PRIVATE);
             String user=sh.getString("userName","");
             String about=sh.getString("aboutyou","");
             CommonFriends=sh.getString("friends","");
@@ -114,22 +113,12 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
 
                 }
             }
-
             if(!Hobbies.equals("")){
-                //gView.removeAllViews();
                 items2=Hobbies.split(",");
-//                gView.removeAllViews();
                 gView.setAdapter(new HobbiesButton(this,items2));
 
             }
-
-
-
-
-
-
-
-
+            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
         }
     }
 }

@@ -13,7 +13,7 @@
     <dimen name="ScrollView_marginleft_Right">15dp</dimen>
     <dimen name="ScrollView_marginTop">180dp</dimen>
     <dimen name="ScrollView_marginBottom">120dp</dimen>
-    <dimen name="UI_bottom_margin">16dp</dimen>
+    <dimen name="UI_bottom_margin">15dp</dimen>
     <dimen name="UI_height">40dp</dimen>
     <dimen name="ButtonMarginSignUp">20dp</dimen>
     <dimen name="Register_top_marginSignUp">390dp</dimen>
@@ -31,7 +31,7 @@
     <dimen name="logoLeftMargin_SignUp">10dp</dimen>
     <dimen name="backWidth">25dp</dimen>
     <dimen name="backHeight">25dp</dimen>
-    <dimen name="profileImage_dimen">90dp</dimen>
+    <dimen name="profileImage_dimen">80dp</dimen>
     <dimen name="profileImage_TopMargin">15dp</dimen>
     <dimen name="userIconWidth">50dp</dimen>
     <dimen name="userIconHeight">50dp</dimen>

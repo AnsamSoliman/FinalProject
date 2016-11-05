@@ -1,6 +1,7 @@
 package com.example.ansam.finalproject;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ public class ProfileEditFragment extends Fragment {
     View view;
     ScrollView scrollView;
     SharedPreferences sharedPreferences;
+    SparseBooleanArray sp;
 
 
     public interface updateInfo{
@@ -42,7 +44,6 @@ public class ProfileEditFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        flage=false;
         //initalize views
         view=inflater.inflate(R.layout.fragment_profile_edit, container, false);
         scrollView=(ScrollView)view.findViewById(R.id.scrollview);
@@ -53,7 +54,7 @@ public class ProfileEditFragment extends Fragment {
         //set Adapter for listView
         Hobbies=getResources().getStringArray(R.array.hobbies);
         listview=(ListView)view.findViewById(R.id.list_view);
-        listview.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        listview.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listview.setAdapter(new ArrayAdapter<String>(view.getContext(),R.layout.list_view,Hobbies));
         //enter common friends
         commonFriends.setOnKeyListener(new View.OnKeyListener() {
@@ -81,31 +82,27 @@ public class ProfileEditFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                SparseBooleanArray sp=getListView().getCheckedItemPositions();
-                for(int i=0;i<sp.size();i++)
-                {
-                    if (sp.valueAt(i))
-
-                        hobbies+=Hobbies[sp.keyAt(i)]+",";
-                }
-
-
-                Log.i("hobbies:",hobbies);
-
-
+                sp=getListView().getCheckedItemPositions();
             }
         });
         //Save all Data
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+                if(sp!=null) {
+                    for (int i = 0; i < listview.getCount(); i++) {
+                        if (sp.valueAt(i))
+
+                            hobbies += Hobbies[sp.keyAt(i)] + ",";
+                    }
+                }
+                Log.i("hobbies:",hobbies);
+                sharedPreferences = getActivity().getSharedPreferences("sh",Context.MODE_PRIVATE);
                 sharedPreferences.edit().clear();
                 aboutU=aboutYou.getText().toString();
                 user=userName.getText().toString();
                 userName.setEnabled(false);
                 commonFriends.setEnabled(false);
-//                enter.setEnabled(false);
                 listview.setEnabled(false);
                 scrollView.setEnabled(false);
                 aboutYou.setEnabled(false);
@@ -119,10 +116,8 @@ public class ProfileEditFragment extends Fragment {
                 editor.putString("friends",friends);
                 editor.putString("hobbies",hobbies);
                 editor.putString("aboutyou",aboutU);
-                editor.putBoolean("flage",flage);
                 editor.commit();
                 mCallback.UpdateInformation(true);
-
             }
         });
 

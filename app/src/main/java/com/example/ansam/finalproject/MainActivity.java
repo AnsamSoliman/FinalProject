@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         start=(Button)findViewById(R.id.start);
         email=(EditText)findViewById(R.id.emai_signIn);
         password=(EditText)findViewById(R.id.password_signIn);
-
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,10 +53,6 @@ public class MainActivity extends AppCompatActivity {
                     Intent i=new Intent(MainActivity.this,Home.class);
                     startActivity(i);
                 }
-
-
-
-
             }
         });
 
@@ -70,9 +65,6 @@ public class MainActivity extends AppCompatActivity {
         });
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Action_Man.ttf");
         Typeface myCustomFont2 = Typeface.createFromAsset(getAssets(), "fonts/Aller_Rg.ttf");
-       // Typeface myCustomFont3 = Typeface.createFromAsset(getAssets(), "fonts/Aller_Bd.ttf");
-        // userName.setTypeface(myCustomFont3);
-        // title.setTypeface(myCustomFont2);
         start.setTypeface(myCustomFont);
         notRegister.setTypeface(myCustomFont2);
         themeDescription.setTypeface(myCustomFont2);
