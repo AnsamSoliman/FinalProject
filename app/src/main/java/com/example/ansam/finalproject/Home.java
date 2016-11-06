@@ -2,6 +2,7 @@ package com.example.ansam.finalproject;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -134,5 +135,7 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
             getSupportFragmentManager().beginTransaction().remove(fragment).commit();
         }
     }
+
+
 }
 

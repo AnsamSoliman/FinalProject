@@ -53,6 +53,7 @@ public class ProfileEditFragment extends Fragment {
     SparseBooleanArray sp;
     ImageView imageChooser;
     Bitmap imageBitmap;
+    ImageView image;
 
 
     public interface updateInfo{
@@ -173,8 +174,7 @@ public class ProfileEditFragment extends Fragment {
                     + " must implement OnHomeActivity");
         }
     }
-
-     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+    public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
         switch(requestCode) {
             case 0:
@@ -182,29 +182,28 @@ public class ProfileEditFragment extends Fragment {
                     Log.i("selectImage","success");
                     Bundle extras = imageReturnedIntent.getExtras();
                     Bitmap imageBitmap = (Bitmap) extras.get("data");
-                    //String encodedImage=
-//                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//                    imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-//                    byte[] byteArray = byteArrayOutputStream .toByteArray();
-//                    String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
-//                    byte[] imageAsBytes=null;
-//                    imageAsBytes = Base64.decode(encoded.getBytes());
-//                    BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
-                    imageChooser.setImageBitmap(Bitmap.createScaledBitmap(imageBitmap, 50, 190, false));
+                    image=(ImageView)getActivity().findViewById(R.id.profileImage);
+                    image.setImageBitmap(Bitmap.createScaledBitmap(imageBitmap, 130, 120, false));
+                   // imageChooser.setImageBitmap(imageBitmap);
                     saveImageFile(imageBitmap);
-                    //imageChooser.setImageBitmap(imageBitmap);
                 }
 
                 break;
             case 1:
                 if(resultCode == RESULT_OK){
-                    Log.i("select","successFrom Gallary");
-                    //selectedImage = imageReturnedIntent.getData();
-                    //imageChooser.setImageURI(selectedImage);
+                   Log.i("select","successFrom Gallary");
+                   // Bundle extras = imageReturnedIntent.getExtras();
+                    Uri selectedImage=imageReturnedIntent.getData();
+                    image=(ImageView)getActivity().findViewById(R.id.profileImage);
+                    image.setImageURI(selectedImage);
+                   // image.setImageBitmap(Bitmap.createScaledBitmap(imageBitmap, 130, 120, false));
+                   // imageChooser.setImageBitmap(imageBitmap);
                 }
                 break;
         }
     }
+
+
     public String saveImageFile(Bitmap bitmap) {
         FileOutputStream out = null;
         String filename = getFilename();
