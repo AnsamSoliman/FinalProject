@@ -16,7 +16,7 @@
     <dimen name="UI_bottom_margin">15dp</dimen>
     <dimen name="UI_height">40dp</dimen>
     <dimen name="ButtonMarginSignUp">20dp</dimen>
-    <dimen name="Register_top_marginSignUp">390dp</dimen>
+    <dimen name="Register_top_marginSignUp">420dp</dimen>
     <dimen name="Facebook_TopMargin">480dp</dimen>
     <dimen name="or_topMargin">445dp</dimen>
     <dimen name="profile_TopMargin">100dp</dimen>

@@ -3,6 +3,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -22,6 +24,7 @@ import android.support.v4.app.Fragment;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,6 +41,7 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
     String [] items,items2;
     LinearLayout LFriends;
     GridView gView;
+    ImageView profileImage;
     String hobb[]={"Cooking","Reading","Watching TV","Fashion","Design","Sporting"};
  @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
         AboutYou=(TextView)findViewById(R.id.aboutU) ;
         LFriends=(LinearLayout)findViewById(R.id.LinearFriend);
         gView=(GridView)findViewById(R.id.gridView);
+        profileImage=(ImageView)findViewById(R.id.profileImage);
         gView.setAdapter(new HobbiesButton(this,hobb));
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +88,14 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
     @Override
     public void UpdateInformation(boolean flage) {
         if(flage==true){
+            try {
+                Bitmap bitmap = BitmapFactory.decodeStream(this.openFileInput("TestFolder"));
+                profileImage.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
             SharedPreferences sh=getSharedPreferences("sh",Context.MODE_PRIVATE);
             String user=sh.getString("userName","");
             String about=sh.getString("aboutyou","");

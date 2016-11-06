@@ -10,7 +10,6 @@
     <ImageView android:layout_width="match_parent"
         android:layout_height="260dp"
         android:background="@drawable/bg_img"/>
-    <ImageView style="@style/userBg" />
 
     <ScrollView style="@style/scrollViewfragment"
         android:layout_height="match_parent"
@@ -35,6 +34,10 @@
         </RelativeLayout>
 
     </ScrollView>
+
+    <ImageView style="@style/userBg"
+        android:onClick="chooseImage"
+        android:id="@+id/imageChooser" />
 
 
 </FrameLayout>

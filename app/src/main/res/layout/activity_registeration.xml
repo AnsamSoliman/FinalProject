@@ -10,35 +10,45 @@
     <ImageView style="@style/Logo.signUp"
         android:id="@+id/logoSignUp"
         android:layout_height="100dp" />
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="210dp">
     <Button style="@style/register"
         android:id="@+id/register"
         android:textAllCaps="false" />
 
-    <TextView style="@style/Or"/>
+    <TextView style="@style/Or"
+        android:id="@+id/or" />
     <Button style="@style/register.facebook"
         android:id="@+id/faceBtn" />
     <TextView style="@style/NotRegister.signUp"/>
 
-    <LinearLayout style="@style/Linearrounded">
+    <LinearLayout style="@style/Linearrounded"
+        android:id="@+id/linearRounded">
 
         <EditText style="@style/Email.UserName"
             android:id="@+id/user_signUp"
-            android:inputType="text|textPersonName" />
-
+            android:inputType="text|textPersonName"
+            android:layout_height="35dp" />
+        <View style="@style/viewstyleReg"/>
         <EditText style="@style/Password.Confirm"
             android:id="@+id/confirmpass"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_height="35dp" />
 
-        <View style="@style/viewStyle"/>
+        <View style="@style/viewstyleReg"/>
         <EditText style="@style/Email.SignUp"
             android:id="@+id/email_signUp"
-            android:inputType="textEmailAddress" />
-        <View style="@style/viewStyle"/>
+            android:inputType="textEmailAddress"
+            android:layout_height="35dp" />
+        <View style="@style/viewstyleReg"/>
         <EditText style="@style/Password.SignUp"
             android:id="@+id/password_signUp"
-            android:inputType="textPassword" />
-        <View style="@style/viewStyle"/>
+            android:inputType="textPassword"
+            android:layout_height="35dp" />
+        <View style="@style/viewstyleReg"/>
     </LinearLayout>
+</RelativeLayout>
 
 </FrameLayout>

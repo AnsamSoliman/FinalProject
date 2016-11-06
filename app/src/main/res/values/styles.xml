@@ -80,7 +80,10 @@
     <!-- TextView NOTRegister signup -->
     <style name="NotRegister.signUp">
         <item name="android:textColor">@color/linearColor</item>
-        <item name="android:layout_marginTop">540dp</item>
+        <item name="android:layout_below">@id/faceBtn</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">10dp</item>
     </style>
     <!-- Dummy Text style-->
     <style name="dummyText">
@@ -100,7 +103,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:text">@string/or</item>
-        <item name="android:layout_marginTop">@dimen/or_topMargin</item>
+        <item name="android:layout_below">@id/register</item>
     </style>
     <!-- Theme Description style -->
     <style name="ThemeDescription" parent="TextAppearance.AppCompat.Body1">
@@ -172,6 +175,13 @@
         <item name="android:layout_below">@id/aboutU</item>
         <item name="android:layout_marginTop">20dp</item>
     </style>
+
+    <!-- view style in registeration-->
+    <style name="viewstyleReg">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/viewColor</item>
+    </style>
     <!--Button style -->
     <style name="Widget.AppCompat.Button.Custom">
         <item name="android:background">@drawable/rounded_button</item>
@@ -221,15 +231,16 @@
         <item name="android:backgroundTint">@color/buttonTextColor</item>
         <item name="android:layout_marginLeft">@dimen/ButtonMarginSignUp</item>
         <item name="android:layout_marginRight">@dimen/ButtonMarginSignUp</item>
-        <item name="android:layout_marginTop">@dimen/Register_top_marginSignUp</item>
+        <item name="android:layout_below">@id/linearRounded</item>
+        <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginBottom">10dp</item>
 
     </style>
     <style name="register.facebook">
         <item name="android:text">@string/facebook_signin</item>
         <item name="android:backgroundTint">@color/blackFacbook</item>
-        <item name="android:layout_marginTop">@dimen/Facebook_TopMargin</item>
-
+        <item name="android:layout_below">@id/or</item>
+        <item name="android:layout_marginTop">10dp</item>
     </style>
     <!-- loginImage style -->
     <style name="Login">
@@ -322,7 +333,6 @@
         <item name="android:layout_marginLeft">@dimen/LineartMargin_SignUp</item>
         <item name="android:layout_marginRight">@dimen/LineartMargin_SignUp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/linear_top_marginSignUp</item>
         <item name="android:background">@drawable/rounded_linear</item>
         <item name="android:padding">5dp</item>
         <item name="android:layout_marginBottom">10dp</item>

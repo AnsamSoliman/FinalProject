@@ -3,9 +3,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.KeyEvent;
@@ -17,8 +24,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import static android.app.Activity.RESULT_OK;
 
 
 public class ProfileEditFragment extends Fragment {
@@ -35,6 +51,8 @@ public class ProfileEditFragment extends Fragment {
     ScrollView scrollView;
     SharedPreferences sharedPreferences;
     SparseBooleanArray sp;
+    ImageView imageChooser;
+    Bitmap imageBitmap;
 
 
     public interface updateInfo{
@@ -51,6 +69,7 @@ public class ProfileEditFragment extends Fragment {
         aboutYou=(EditText) view.findViewById(R.id.about);
         commonFriends=(EditText)view.findViewById(R.id.friends);
         save=(Button)view.findViewById(R.id.save);
+        imageChooser=(ImageView)view.findViewById(R.id.imageChooser);
         //set Adapter for listView
         Hobbies=getResources().getStringArray(R.array.hobbies);
         listview=(ListView)view.findViewById(R.id.list_view);
@@ -85,6 +104,23 @@ public class ProfileEditFragment extends Fragment {
                 sp=getListView().getCheckedItemPositions();
             }
         });
+        //select image
+        imageChooser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //from camera
+                Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(takePicture, 0);
+                //from gallary
+                Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(pickPhoto , 1);
+
+
+
+            }
+        });
+
         //Save all Data
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +152,7 @@ public class ProfileEditFragment extends Fragment {
                 editor.putString("friends",friends);
                 editor.putString("hobbies",hobbies);
                 editor.putString("aboutyou",aboutU);
+
                 editor.commit();
                 mCallback.UpdateInformation(true);
             }
@@ -133,8 +170,62 @@ public class ProfileEditFragment extends Fragment {
             mCallback = (updateInfo) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
+                    + " must implement OnHomeActivity");
         }
+    }
+
+     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+        switch(requestCode) {
+            case 0:
+                if(resultCode == RESULT_OK ){
+                    Log.i("selectImage","success");
+                    Bundle extras = imageReturnedIntent.getExtras();
+                    Bitmap imageBitmap = (Bitmap) extras.get("data");
+                    //String encodedImage=
+//                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//                    imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+//                    byte[] byteArray = byteArrayOutputStream .toByteArray();
+//                    String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+//                    byte[] imageAsBytes=null;
+//                    imageAsBytes = Base64.decode(encoded.getBytes());
+//                    BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+                    imageChooser.setImageBitmap(Bitmap.createScaledBitmap(imageBitmap, 50, 190, false));
+                    saveImageFile(imageBitmap);
+                    //imageChooser.setImageBitmap(imageBitmap);
+                }
+
+                break;
+            case 1:
+                if(resultCode == RESULT_OK){
+                    Log.i("select","successFrom Gallary");
+                    //selectedImage = imageReturnedIntent.getData();
+                    //imageChooser.setImageURI(selectedImage);
+                }
+                break;
+        }
+    }
+    public String saveImageFile(Bitmap bitmap) {
+        FileOutputStream out = null;
+        String filename = getFilename();
+        try {
+            out = new FileOutputStream(filename);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100,out);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return filename;
+    }
+
+    private String getFilename() {
+        File file = new File(Environment.getExternalStorageDirectory()
+                .getPath(), "TestFolder");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        String uriSting = (file.getAbsolutePath() + "/"
+                + System.currentTimeMillis() + ".jpg");
+        return uriSting;
     }
 
 }
