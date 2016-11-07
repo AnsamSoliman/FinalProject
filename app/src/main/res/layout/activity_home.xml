@@ -45,7 +45,6 @@
 
         <ScrollView style="@style/scrollView"
             android:id="@+id/scrollHome"
-            android:layout_above="@+id/relativeLayout"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
             <RelativeLayout style="@style/LinearScroll">

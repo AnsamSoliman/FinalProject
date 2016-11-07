@@ -1,6 +1,8 @@
 package com.example.ansam.finalproject;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -54,6 +56,8 @@ public class ProfileEditFragment extends Fragment {
     ImageView imageChooser;
     Bitmap imageBitmap;
     ImageView image;
+    final CharSequence[] items = { "Take Photo", "Choose from gallery",
+            "Cancel" };
 
 
     public interface updateInfo{
@@ -109,15 +113,34 @@ public class ProfileEditFragment extends Fragment {
         imageChooser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //from camera
-                Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(takePicture, 0);
-                //from gallary
-                Intent pickPhoto = new Intent(Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(pickPhoto , 1);
+
+                AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int item) {
+                        if (items[item].equals("Take Photo")) {
+                            //from camera
+                            Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            startActivityForResult(takePicture, 0);
+
+                        } else if (items[item].equals("Choose from gallery")) {
+                            //from gallary
+                             Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                                    android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                            pickPhoto.setType("image/*");
+
+                            startActivityForResult( pickPhoto, 1);
+                        }
+                        else if (items[item].equals("Cancel")) {
+                            dialog.dismiss();
 
 
+                        }
+                    }
+                });
+                builder.show();
 
             }
         });
@@ -153,7 +176,6 @@ public class ProfileEditFragment extends Fragment {
                 editor.putString("friends",friends);
                 editor.putString("hobbies",hobbies);
                 editor.putString("aboutyou",aboutU);
-
                 editor.commit();
                 mCallback.UpdateInformation(true);
             }
@@ -183,48 +205,22 @@ public class ProfileEditFragment extends Fragment {
                     Bundle extras = imageReturnedIntent.getExtras();
                     Bitmap imageBitmap = (Bitmap) extras.get("data");
                     image=(ImageView)getActivity().findViewById(R.id.profileImage);
-                    image.setImageBitmap(Bitmap.createScaledBitmap(imageBitmap, 130, 120, false));
-                   // imageChooser.setImageBitmap(imageBitmap);
-                    saveImageFile(imageBitmap);
+                    image.setImageBitmap(imageBitmap);
+
                 }
 
                 break;
             case 1:
                 if(resultCode == RESULT_OK){
                    Log.i("select","successFrom Gallary");
-                   // Bundle extras = imageReturnedIntent.getExtras();
                     Uri selectedImage=imageReturnedIntent.getData();
                     image=(ImageView)getActivity().findViewById(R.id.profileImage);
                     image.setImageURI(selectedImage);
-                   // image.setImageBitmap(Bitmap.createScaledBitmap(imageBitmap, 130, 120, false));
-                   // imageChooser.setImageBitmap(imageBitmap);
+
                 }
                 break;
         }
     }
 
-
-    public String saveImageFile(Bitmap bitmap) {
-        FileOutputStream out = null;
-        String filename = getFilename();
-        try {
-            out = new FileOutputStream(filename);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100,out);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return filename;
-    }
-
-    private String getFilename() {
-        File file = new File(Environment.getExternalStorageDirectory()
-                .getPath(), "TestFolder");
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        String uriSting = (file.getAbsolutePath() + "/"
-                + System.currentTimeMillis() + ".jpg");
-        return uriSting;
-    }
 
 }

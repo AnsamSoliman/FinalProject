@@ -44,6 +44,9 @@ public class HobbiesButton extends BaseAdapter {
             gridView = inflater.inflate(R.layout.item, null);
             TextView textView = (TextView) gridView
                     .findViewById(R.id.grid_item_label);
+            //ViewGroup.LayoutParams lp=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            //textView.setLayoutParams(lp);
+            //int height = parent.getWidth();
             textView.setText(textViewValues[position]);
         } else {
             gridView = (View) convertView;

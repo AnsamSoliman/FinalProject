@@ -10,7 +10,7 @@
     <TextView style="@style/ThemeDescription"
         android:id="@+id/themeDes" />
 
-    <LinearLayout style="@style/Linear"
+    <RelativeLayout style="@style/Linear"
         android:id="@+id/LinearLayout">
 
         <EditText style="@style/Email"
@@ -23,8 +23,9 @@
         <Button style="@style/start"
             android:id="@+id/start" />
         <TextView style="@style/NotRegister"
-            android:id="@+id/notRegister" />
-    </LinearLayout>
+            android:id="@+id/notRegister"
+            android:layout_width="match_parent" />
+    </RelativeLayout>
 
 
 </FrameLayout>

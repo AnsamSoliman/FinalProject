@@ -23,6 +23,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.support.v4.app.Fragment;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.FileNotFoundException;
@@ -36,6 +37,7 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
     Fragment fragment;
     ImageView menu;
     Button circle;
+    ScrollView scrollHome;
     TextView UserName;
     TextView AboutYou;
     String CommonFriends,Hobbies;
@@ -48,6 +50,7 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        scrollHome=(ScrollView)findViewById(R.id.scrollHome);
         fragment=new ProfileEditFragment();
         menu=(ImageView)findViewById(R.id.humb) ;
         UserName=(TextView)findViewById(R.id.user);
@@ -56,6 +59,8 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
         gView=(GridView)findViewById(R.id.gridView);
         profileImage=(ImageView)findViewById(R.id.profileImage);
         gView.setAdapter(new HobbiesButton(this,hobb));
+        scrollHome.setBackgroundResource(R.drawable.rounded_linear);
+        ((GradientDrawable)scrollHome.getBackground()).setColor(Color.parseColor("#33ffffff"));
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,14 +94,6 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
     @Override
     public void UpdateInformation(boolean flage) {
         if(flage==true){
-            try {
-                Bitmap bitmap = BitmapFactory.decodeStream(this.openFileInput("TestFolder"));
-                profileImage.setImageBitmap(bitmap);
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-
             SharedPreferences sh=getSharedPreferences("sh",Context.MODE_PRIVATE);
             String user=sh.getString("userName","");
             String about=sh.getString("aboutyou","");
@@ -132,9 +129,11 @@ public class Home extends AppCompatActivity implements PopupMenu.OnMenuItemClick
                 gView.setAdapter(new HobbiesButton(this,items2));
 
             }
+
             getSupportFragmentManager().beginTransaction().remove(fragment).commit();
         }
     }
+
 
 
 }

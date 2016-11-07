@@ -3,24 +3,31 @@ package com.example.ansam.finalproject;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class Registeration extends AppCompatActivity {
     Button register;
     EditText name,email,password,confirmPass;
     String Name,Email,Password,ConfirmPass;
+    LinearLayout linearLayout;
     SharedPreferences sh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
+        linearLayout=(LinearLayout)findViewById(R.id.linearRounded);
+        linearLayout.setBackgroundResource(R.drawable.rounded_linear);
+        ((GradientDrawable)linearLayout.getBackground()).setColor(Color.parseColor("#ffffff"));
         register=(Button)findViewById(R.id.register);
         name=(EditText)findViewById(R.id.user_signUp);
         email=(EditText)findViewById(R.id.email_signUp);
@@ -54,12 +61,6 @@ public class Registeration extends AppCompatActivity {
 
             }
         });
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Action_Man.ttf");
-        Typeface myCustomFont2 = Typeface.createFromAsset(getAssets(), "fonts/Aller_Rg.ttf");
-//        register=(Button)findViewById(R.id.register);
-//        Typeface myCustomFont =Typeface.createFromAsset(getAssets(),"fonts/Aller_Rg.ttf");
-//        register.setTypeface(myCustomFont);
-        //  face.setTypeface(myCustomFont2);
-        //   register.setTypeface(myCustomFont2);
+
     }
 }
