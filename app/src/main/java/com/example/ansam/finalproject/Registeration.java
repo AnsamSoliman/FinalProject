@@ -1,8 +1,10 @@
 package com.example.ansam.finalproject;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
@@ -21,10 +23,14 @@ public class Registeration extends AppCompatActivity {
     String Name,Email,Password,ConfirmPass;
     LinearLayout linearLayout;
     SharedPreferences sh;
+    LoginDataBase login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
+        login=new LoginDataBase(this);
+        login.open();
         linearLayout=(LinearLayout)findViewById(R.id.linearRounded);
         linearLayout.setBackgroundResource(R.drawable.rounded_linear);
         ((GradientDrawable)linearLayout.getBackground()).setColor(Color.parseColor("#ffffff"));
@@ -48,13 +54,17 @@ public class Registeration extends AppCompatActivity {
                 else if(!Password.equals(ConfirmPass))
                     Toast.makeText(getApplicationContext(), "password and confrim password are not the same!!", Toast.LENGTH_SHORT).show();
                 else {
-                    sh=getSharedPreferences("sh",Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sh.edit();
-                    editor.putString("Email",Email);
-                    editor.putString("Password",Password);
-                    editor.commit();
+                    //sh=getSharedPreferences("sh",Context.MODE_PRIVATE);
+                   // SharedPreferences.Editor editor = sh.edit();
+                   // editor.putString("Email",Email);
+                   // editor.putString("Password",Password);
+                   // editor.commit();
+                    // *Saving info in DataBase*//
+                    login.insertEntry(Password,Email);
+                    Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
                     Intent i=new Intent(Registeration.this,MainActivity.class);
                     startActivity(i);
+
 
                 }
 

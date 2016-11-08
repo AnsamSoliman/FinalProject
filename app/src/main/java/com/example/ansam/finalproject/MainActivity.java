@@ -3,6 +3,8 @@ package com.example.ansam.finalproject;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -23,17 +25,19 @@ public class MainActivity extends AppCompatActivity {
     TextView themeDescription, notRegister;
     Button start;
     EditText email, password;
-    String em,pass,shPass,shEmail;
-
+    String em,pass,shPass,shEmail,passw;
+    LoginDataBase login;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SharedPreferences sh=getSharedPreferences("sh", Context.MODE_PRIVATE);
-        shPass=sh.getString("Password","null");
-        shEmail=sh.getString("Email","");
-        Log.i("password",shPass);
-        Log.i("email",shEmail);
+        login=new LoginDataBase(this);
+        login.open();
+       // SharedPreferences sh=getSharedPreferences("sh", Context.MODE_PRIVATE);
+       // shPass=sh.getString("Password","null");
+       // shEmail=sh.getString("Email","");
+//        Log.i("password",shPass);
+    //    Log.i("email",shEmail);
         themeDescription=(TextView)findViewById(R.id.themeDes) ;
         notRegister=(TextView)findViewById(R.id.notRegister);
         start=(Button)findViewById(R.id.start);
@@ -43,16 +47,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 em=email.getText().toString();
-                Log.i("em",em);
                 pass=password.getText().toString();
-                if(em.equals("")||pass.equals(""))
-                    Toast.makeText(getApplicationContext(), "Please enter all fields!!", Toast.LENGTH_SHORT).show();
-                else if(!em.equalsIgnoreCase(shEmail)||!pass.equalsIgnoreCase(shPass))
-                    Toast.makeText(getApplicationContext(), "email or password isn't correct!!", Toast.LENGTH_SHORT).show();
-                else{
+                String storedPassword=login.getSinlgeEntry(em);
+               // Toast.makeText(MainActivity.this, storedPassword, Toast.LENGTH_LONG).show();
+                if(pass.equals(storedPassword))
+                {
+                    Toast.makeText(MainActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
                     Intent i=new Intent(MainActivity.this,Home.class);
                     startActivity(i);
                 }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "User Name or Password does not match", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
