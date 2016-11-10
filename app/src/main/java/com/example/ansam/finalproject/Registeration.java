@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
 
 public class Registeration extends AppCompatActivity {
     Button register;
@@ -72,15 +73,21 @@ public class Registeration extends AppCompatActivity {
                     // *Saving info in DataBase*//
                //     login.insertEntry(Password,Email);
 //                    Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
-                    myOtherRealm.beginTransaction();
-                    Person p=myOtherRealm.createObject(Person.class,Email);
-                    p.setEmail(Email);
-                    p.setPassword(Password);
-                    p.setUserName(Name);
-                    myOtherRealm.commitTransaction();
-                  Intent i=new Intent(Registeration.this,MainActivity.class);
-                    startActivity(i);
-
+                    RealmResults<Person> results1 =
+                            myOtherRealm.where(Person.class).equalTo("Email",Email).findAll();
+                    if(results1.size()>0){
+                        Toast.makeText(getApplicationContext(), "email was taken,please choose another one!!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        myOtherRealm.beginTransaction();
+                        Person p = myOtherRealm.createObject(Person.class, Email);
+                        p.setEmail(Email);
+                        p.setPassword(Password);
+                        p.setUserName(Name);
+                        myOtherRealm.commitTransaction();
+                        Intent i = new Intent(Registeration.this, MainActivity.class);
+                        startActivity(i);
+                    }
 
                 }
 
