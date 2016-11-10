@@ -17,6 +17,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class Registeration extends AppCompatActivity {
     Button register;
     EditText name,email,password,confirmPass;
@@ -29,8 +32,15 @@ public class Registeration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
-        login=new LoginDataBase(this);
-        login.open();
+        final Realm myOtherRealm =
+                Realm.getInstance(
+                        new RealmConfiguration.Builder()
+                                .name("myOtherRealm.realm")
+                                .build()
+                );
+
+       // login=new LoginDataBase(this);
+//        login.open();
         linearLayout=(LinearLayout)findViewById(R.id.linearRounded);
         linearLayout.setBackgroundResource(R.drawable.rounded_linear);
         ((GradientDrawable)linearLayout.getBackground()).setColor(Color.parseColor("#ffffff"));
@@ -60,9 +70,15 @@ public class Registeration extends AppCompatActivity {
                    // editor.putString("Password",Password);
                    // editor.commit();
                     // *Saving info in DataBase*//
-                    login.insertEntry(Password,Email);
-                    Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
-                    Intent i=new Intent(Registeration.this,MainActivity.class);
+               //     login.insertEntry(Password,Email);
+//                    Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
+                    myOtherRealm.beginTransaction();
+                    Person p=myOtherRealm.createObject(Person.class,Email);
+                    p.setEmail(Email);
+                    p.setPassword(Password);
+                    p.setUserName(Name);
+                    myOtherRealm.commitTransaction();
+                  Intent i=new Intent(Registeration.this,MainActivity.class);
                     startActivity(i);
 
 

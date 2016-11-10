@@ -20,6 +20,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
+
 
 public class MainActivity extends AppCompatActivity {
     TextView themeDescription, notRegister;
@@ -31,8 +35,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        login=new LoginDataBase(this);
-        login.open();
+        Realm.init(this);
+        Realm myRealm=Realm.getDefaultInstance();
+        final Realm myOtherRealm =
+                Realm.getInstance(
+                        new RealmConfiguration.Builder()
+                                .name("myOtherRealm.realm")
+                                .build()
+                );
+     //   login=new LoginDataBase(this);
+//        login.open();
        // SharedPreferences sh=getSharedPreferences("sh", Context.MODE_PRIVATE);
        // shPass=sh.getString("Password","null");
        // shEmail=sh.getString("Email","");
@@ -48,17 +60,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 em=email.getText().toString();
                 pass=password.getText().toString();
-                String storedPassword=login.getSinlgeEntry(em);
+//                String storedPassword=login.getSinlgeEntry(em);
                // Toast.makeText(MainActivity.this, storedPassword, Toast.LENGTH_LONG).show();
-                if(pass.equals(storedPassword))
+                RealmResults<Person> results1 =
+                        myOtherRealm.where(Person.class).equalTo("Email",em).equalTo("Password",pass).findAll();
+                if(results1.size()>0)
                 {
-                    Toast.makeText(MainActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
+
+                    Toast.makeText(MainActivity.this, "Congrats: Login Successfull", Toast.LENGTH_SHORT).show();
                     Intent i=new Intent(MainActivity.this,Home.class);
                     startActivity(i);
                 }
                 else
                 {
-                    Toast.makeText(MainActivity.this, "User Name or Password does not match", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "User Name or Password does not match", Toast.LENGTH_SHORT).show();
                 }
 
             }
